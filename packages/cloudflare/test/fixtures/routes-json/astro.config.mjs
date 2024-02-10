@@ -1,9 +1,13 @@
+import cloudflare from '@astrojs/cloudflare';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-	// adapter will be set dynamically by the test
-	output: 'hybrid',
+	adapter: cloudflare(),
+	output: 'server',
+	build: {
+		inlineStylesheets: 'never',
+	},
 	redirects: {
-		'/a/redirect': '/',
+		'/user/astro': '/u/astro',
 	},
 });
